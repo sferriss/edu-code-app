@@ -1,0 +1,8 @@
+.table-head {
+    font-size: 15px !important;
+    font-weight: bold !important;
+}
+
+.table-item {
+    cursor: pointer;
+}

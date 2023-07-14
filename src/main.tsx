@@ -18,6 +18,10 @@ const router = createBrowserRouter([
             {
                 path: "compiler",
                 element: <Compiler/>
+            },
+            {
+                path: "compiler/:id",
+                element: <Compiler/>
             }
         ]
     }
