@@ -1,6 +1,10 @@
 import "../styles/exercise.css"
 import {Accordion, AccordionDetails, AccordionSummary, createTheme, ThemeProvider, Typography} from "@mui/material";
 import QuestionsTable from "../components/QuestionsTable.tsx";
+import {useEffect, useState} from "react";
+import {List} from "../interfaces/List.ts";
+import {ApiService} from "../ApiClientService.ts";
+import {useNavigate} from "react-router-dom";
 
 const theme = createTheme({
     components: {
@@ -31,50 +35,31 @@ const theme = createTheme({
 });
 
 export function Exercise() {
-    const items = [
-        {
-            id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            title: "Lista sobre arrays",
-            questionTotal: 1,
-            createdAt: "2023-07-13T22:12:37.993Z",
-            questions: [
-                {
-                    id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                    title: "Some os valores do array",
-                    difficulty: "Easy"
-                },
-                {
-                    id: "3fa85f64-5717-4562-b3fc-2c963f66afa7",
-                    title: "Encontre o maior valor",
-                    difficulty: "Easy"
-                },
-            ],
-        },
-        {
-            id: "3fa85f64-5717-4562-b3fc-2c963f66afa7",
-            title: "Lista sobre matriz",
-            questionTotal: 1,
-            createdAt: "2023-07-13T22:12:37.993Z",
-            questions: [
-                {
-                    id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-                    title: "Some os valores da matriz",
-                    difficulty: "Medium"
-                },
-            ],
-        },
-    ];
+    const [list, setList] = useState<List[] | undefined>([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        ApiService.getList()
+            .then(response => setList(response.data.items))
+            .catch(error => console.error(error));
+    }, []);
+
+    const handleItemClick = (id: string) => {
+        navigate(`/compiler/${id}`);
+    };
 
     return <div className="exercise-container">
         <div style={{width: "50%"}}>
             <ThemeProvider theme={theme}>
-                {items.map((item) => (
+                {list?.map((item) => (
                     <Accordion key={item.id}>
                         <AccordionSummary>
                             <Typography>{item.title}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <QuestionsTable questions={item.questions}/>
+                            <QuestionsTable
+                                questions={item.questions}
+                                onClick={handleItemClick}/>
                         </AccordionDetails>
                     </Accordion>
                 ))}

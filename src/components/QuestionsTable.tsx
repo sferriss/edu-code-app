@@ -6,24 +6,14 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import "../styles/question-table.css"
-import { useNavigate } from 'react-router-dom';
-
-interface Question {
-  id: string;
-  title: string;
-  difficulty: string;
-}
+import {Question} from "../interfaces/Question.ts";
 
 interface QuestionsTableProps {
-  questions: Question[];
+  onClick: (id: string) => void
+  questions: Question[]|undefined;
 }
 
-export default function QuestionsTable({ questions }: QuestionsTableProps) {
-  const navigate = useNavigate();
-
-  const handleItemClick = (id: string) => {
-    navigate(`/compiler/${id}`);
-  };
+export default function QuestionsTable({onClick, questions }: QuestionsTableProps) {
 
   return (
     <TableContainer component={Paper}>
@@ -35,12 +25,12 @@ export default function QuestionsTable({ questions }: QuestionsTableProps) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {questions.map((q) => (
+          {questions?.map((q) => (
             <TableRow
                 className="table-item"
                 key={q.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                onClick={() => handleItemClick(q.id)}>
+                onClick={() => onClick(q.id)}>
               <TableCell>{q.title}</TableCell>
               <TableCell>{q.difficulty}</TableCell>
             </TableRow>
