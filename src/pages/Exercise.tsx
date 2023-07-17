@@ -1,10 +1,18 @@
 import "../styles/exercise.css"
-import {Accordion, AccordionDetails, AccordionSummary, createTheme, ThemeProvider, Typography} from "@mui/material";
+import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    createTheme,
+    ThemeProvider,
+    Typography
+} from "@mui/material";
 import QuestionsTable from "../components/QuestionsTable.tsx";
 import {useEffect, useState} from "react";
-import {List} from "../interfaces/list.ts";
-import {ApiService} from "../apiClientService.ts";
+import {ListResponse} from "../interfaces/Responses/listResponse.ts";
+import {ApiService} from "../Services/apiClientService.ts";
 import {useNavigate} from "react-router-dom";
+import {Loading} from "../components/Loading.tsx";
 
 const theme = createTheme({
     components: {
@@ -35,7 +43,7 @@ const theme = createTheme({
 });
 
 export function Exercise() {
-    const [list, setList] = useState<List[] | undefined>([]);
+    const [list, setList] = useState<ListResponse[] | undefined>([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -51,7 +59,7 @@ export function Exercise() {
     return <div className="exercise-container">
         <div style={{width: "50%"}}>
             <ThemeProvider theme={theme}>
-                {list?.map((item) => (
+                {list?.length ? list.map((item) => (
                     <Accordion key={item.id}>
                         <AccordionSummary>
                             <Typography>{item.title}</Typography>
@@ -62,7 +70,7 @@ export function Exercise() {
                                 onClick={handleItemClick}/>
                         </AccordionDetails>
                     </Accordion>
-                ))}
+                )) : <Loading />}
             </ThemeProvider>
         </div>
     </div>

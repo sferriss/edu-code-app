@@ -1,4 +1,4 @@
-export interface Pagination<T> {
+export interface PaginationResponse<T> {
     items?: Array<T>;
     page: number;
     pageSize: number;

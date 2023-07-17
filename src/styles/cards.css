@@ -1,0 +1,21 @@
+.question-card {
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+}
+
+.example-container > p{
+    font-weight: bold;
+}
+
+.example-box {
+    border-radius: 5px;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    background-color: #ffffff12;
+}
+
+.example-box span {
+    font-weight: bold;
+}
