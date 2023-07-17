@@ -13,6 +13,7 @@ import {ListResponse} from "../interfaces/Responses/listResponse.ts";
 import {ApiService} from "../Services/apiClientService.ts";
 import {useNavigate} from "react-router-dom";
 import {Loading} from "../components/Loading.tsx";
+import {SimpleQuestionResponse} from "../interfaces/Responses/simpleQuestionResponse.ts";
 
 const theme = createTheme({
     components: {
@@ -66,7 +67,7 @@ export function Exercise() {
                         </AccordionSummary>
                         <AccordionDetails>
                             <QuestionsTable
-                                questions={item.questions}
+                                questions={item.questions as SimpleQuestionResponse[]}
                                 onClick={handleItemClick}/>
                         </AccordionDetails>
                     </Accordion>
