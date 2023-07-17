@@ -1,0 +1,10 @@
+.exercise-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.accordion-container {
+    background-color: #373c43;
+    color: #e5e5e5;
+}

@@ -4,8 +4,6 @@ import {Navbar} from "./components/Navbar.tsx";
 import {Footer} from "./components/Footer.tsx";
 
 function App() {
-    // const [count, setCount] = useState(0)
-
     return (
         <>
             <Navbar />
