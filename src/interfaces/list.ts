@@ -1,4 +1,4 @@
-import {Question} from "./Question.ts";
+import {Question} from "./question.ts";
 
 export interface List{
     id: string;

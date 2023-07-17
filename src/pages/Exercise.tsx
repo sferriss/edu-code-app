@@ -2,8 +2,8 @@ import "../styles/exercise.css"
 import {Accordion, AccordionDetails, AccordionSummary, createTheme, ThemeProvider, Typography} from "@mui/material";
 import QuestionsTable from "../components/QuestionsTable.tsx";
 import {useEffect, useState} from "react";
-import {List} from "../interfaces/List.ts";
-import {ApiService} from "../ApiClientService.ts";
+import {List} from "../interfaces/list.ts";
+import {ApiService} from "../apiClientService.ts";
 import {useNavigate} from "react-router-dom";
 
 const theme = createTheme({

@@ -6,7 +6,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import "../styles/question-table.css"
-import {Question} from "../interfaces/Question.ts";
+import {Question} from "../interfaces/question.ts";
 
 interface QuestionsTableProps {
   onClick: (id: string) => void
