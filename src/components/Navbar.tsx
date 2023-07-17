@@ -1,12 +1,14 @@
 import "../styles/navbar.css"
 import Logo from "../assets/a-rocket-5-no-background.png"
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from 'react';
 import {useLocation} from 'react-router-dom';
 
 export function Navbar() {
     const location = useLocation();
     const [activePath, setActivePath] = useState(location.pathname);
+    const params = useParams();
+    const questionId = params.id as string;
 
     useEffect(() => {
         setActivePath(location.pathname);
@@ -21,10 +23,10 @@ export function Navbar() {
                 <Link className={`navbar-link ${activePath === '/' ? 'active-link' : ''}`} to="/">
                     Exercícios
                 </Link>
-                <Link className={`navbar-link ${activePath.startsWith('/compiler') ? 'active-link' : ''}`}
-                      to="/compiler">
+                {activePath.startsWith('/compiler') && <Link className={`navbar-link ${activePath.startsWith('/compiler') ? 'active-link' : ''}`}
+                       to={`/compiler/${questionId}`}>
                     Compilador
-                </Link>
+                </Link>}
             </div>
             <div className="navbar-sub-container">
             </div>

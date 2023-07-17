@@ -6,11 +6,11 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import "../styles/question-table.css"
-import {Question} from "../interfaces/question.ts";
+import {SimpleQuestionResponse} from "../interfaces/Responses/simpleQuestionResponse.ts";
 
 interface QuestionsTableProps {
   onClick: (id: string) => void
-  questions: Question[]|undefined;
+  questions: SimpleQuestionResponse[];
 }
 
 export default function QuestionsTable({onClick, questions }: QuestionsTableProps) {

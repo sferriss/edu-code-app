@@ -1,4 +1,4 @@
-export interface Question {
+export interface SimpleQuestionResponse {
     id: string;
     title: string;
     difficulty: string;
