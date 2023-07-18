@@ -59,11 +59,15 @@
     background-color: rgb(49, 213, 108);
 }
 
+.run-btn:disabled {
+    cursor: none;
+    background-color: #373c43;
+}
+
 .data-container {
     display: flex;
     padding: 5px 10px;
     height: 120px;
-
 }
 
 .output-container {

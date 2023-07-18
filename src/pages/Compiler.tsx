@@ -58,6 +58,7 @@ export function Compiler() {
                 fontSize={fontSize}
                 setFontSize={setFontSize}
                 compile={compile}
+                disableRun={loading}
             />
             <Editor
                 options={options}

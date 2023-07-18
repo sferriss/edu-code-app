@@ -4,9 +4,10 @@ interface NavBarEditorProps {
     fontSize: string
     setFontSize: (value: string) => void
     compile: () => Promise<void>
+    disableRun: boolean
 }
 
-export function NavBarEditor({fontSize, setFontSize, compile}: NavBarEditorProps) {
+export function NavBarEditor({fontSize, setFontSize, compile, disableRun}: NavBarEditorProps) {
 
     return (
         <div className="navbar-editor">
@@ -23,7 +24,7 @@ export function NavBarEditor({fontSize, setFontSize, compile}: NavBarEditorProps
             </div>
             <div className="navbar-container-right">
                 {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
-                <button className="run-btn" onClick={() => compile()}>
+                <button className="run-btn" onClick={() => compile()} disabled={disableRun}>
                     Run
                 </button>
             </div>
