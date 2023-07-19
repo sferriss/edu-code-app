@@ -59,6 +59,8 @@ export function Compiler() {
                 setFontSize={setFontSize}
                 compile={compile}
                 disableRun={loading}
+                questionId={questionId as string}
+                code={userCode as string}
             />
             <Editor
                 options={options}
