@@ -2,8 +2,10 @@ import axios, {AxiosResponse} from 'axios';
 import {ListResponse} from "../interfaces/Responses/listResponse.ts";
 import {PaginationResponse} from "../interfaces/Responses/paginationResponse.ts";
 import {FullQuestionResponse} from "../interfaces/Responses/fullQuestionResponse.ts";
-import {CompileResponse} from "../interfaces/Responses/CompileResponse.ts";
+import {CompileResponse} from "../interfaces/Responses/compileResponse.ts";
 import {CompileRequest} from "../interfaces/Requests/compileRequest.ts";
+import {DoubtRequest} from "../interfaces/Requests/doubtRequest.ts";
+import {DoubtResponse} from "../interfaces/Responses/doubtResponse.ts";
 
 const API_BASE_URL = 'https://edu-code-api.onrender.com';
 
@@ -26,8 +28,13 @@ const postCompile = (data: CompileRequest): Promise<AxiosResponse<CompileRespons
     return client.post(`students/compile`, data);
 };
 
+const postDoubt = (id: string, data: DoubtRequest): Promise<AxiosResponse<DoubtResponse>> => {
+    return client.post(`students/doubt/${id}`, data);
+};
+
 export const ApiService = {
     getList: () => getList(),
     getQuestionById: (id: string) => getQuestionById(id),
     postCompile: (data: CompileRequest) => postCompile(data),
+    postDoubt: (id: string, data: DoubtRequest) => postDoubt(id, data),
 };
