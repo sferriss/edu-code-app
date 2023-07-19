@@ -49,6 +49,7 @@ export function Compiler() {
         })
     }
 
+
     return (<div className="compiler-container">
         <div className="question-container">
             {question ? <QuestionCard question={question}/> : <Loading />}
@@ -63,6 +64,7 @@ export function Compiler() {
                 code={userCode as string}
             />
             <Editor
+                // @ts-ignore
                 options={options}
                 height="calc(100vh - 280px)"
                 width="100%"

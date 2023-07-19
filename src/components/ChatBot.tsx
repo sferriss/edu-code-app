@@ -6,7 +6,8 @@ import {
     MessageList,
     Message,
     MessageInput,
-    TypingIndicator, ConversationHeader, Avatar
+    TypingIndicator,
+    ConversationHeader
 } from '@chatscope/chat-ui-kit-react';
 import React, {useState} from "react";
 import {MessageModel} from "@chatscope/chat-ui-kit-react/src/components/Message/Message";
