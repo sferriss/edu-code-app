@@ -47,11 +47,11 @@ export function NavBarEditor({fontSize, setFontSize, compile, disableRun, questi
             </div>
             <div className="navbar-container-right">
                 {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
-                <button className="run-btn" onClick={() => compile()} disabled={disableRun}>
+                <button className="btn run-btn" onClick={() => compile()} disabled={disableRun}>
                     Run
                 </button>
                 <div>
-                    <button className="run-btn" aria-describedby={id} type="button" onClick={handleClick}>
+                    <button className="btn help-btn" aria-describedby={id} type="button" onClick={handleClick}>
                         Help
                     </button>
                     <Popper id={id} open={open} anchorEl={anchorEl} placement="bottom-end">

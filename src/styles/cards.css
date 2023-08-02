@@ -4,6 +4,11 @@
     flex-direction: column;
 }
 
+.title-container {
+    display: flex;
+    align-items: center;
+}
+
 .example-container > p{
     font-weight: bold;
 }

@@ -1,8 +1,18 @@
 .table-head {
-    font-size: 15px !important;
-    font-weight: bold !important;
+    font-weight: 600 !important;
+    font-size: 0.990rem !important;
 }
 
 .table-item {
     cursor: pointer;
+}
+
+.table-item:hover {
+    background-color: #ededf5;
+}
+
+.table-cell {
+    font-weight: 600 !important;
+    font-size: 0.950rem !important;
+    color: #214fc9 !important;
 }

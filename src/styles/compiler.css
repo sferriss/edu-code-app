@@ -41,22 +41,34 @@
     gap: 15px;
 }
 
-.run-btn {
+.btn {
     cursor: pointer;
     margin: 0 15px;
     width: 70px;
     height: 30px;
     font-size: 14px;
     font-weight: bold;
-    background-color: rgb(45 181 93);
     border: none;
     border-radius: 4px;
     transition: 0.3s;
-    color: #eff1f6bf;
+}
+
+.run-btn {
+    background-color: rgb(45 181 93);
+    color: #ffffff;
+}
+
+.help-btn {
+    background-color: #0461c4;
+    color: #ffffff;
 }
 
 .run-btn:hover {
     background-color: rgb(49, 213, 108);
+}
+
+.help-btn:hover {
+    background-color: #0274e8;
 }
 
 .run-btn:disabled {
