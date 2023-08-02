@@ -1,7 +1,7 @@
 import "../styles/compiler.css"
 import {useEffect, useState} from "react";
 import {useParams} from 'react-router-dom';
-import {ApiService} from "../Services/apiClientService.ts";
+import {ApiService} from "../services/apiClientService.ts";
 import {FullQuestionResponse} from "../interfaces/Responses/fullQuestionResponse.ts";
 import {QuestionCard} from "../components/QuestionCard.tsx";
 import {Editor} from "@monaco-editor/react";

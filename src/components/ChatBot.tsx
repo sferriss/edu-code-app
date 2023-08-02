@@ -11,7 +11,7 @@ import {
 } from '@chatscope/chat-ui-kit-react';
 import React, {useState} from "react";
 import {MessageModel} from "@chatscope/chat-ui-kit-react/src/components/Message/Message";
-import {ApiService} from "../Services/apiClientService.ts";
+import {ApiService} from "../services/apiClientService.ts";
 
 interface ChatBotProps {
     id: string
@@ -76,7 +76,9 @@ export function ChatBot({id, code, messages, setMessages}: ChatBotProps) {
                         <MessageInput
                             className="gray-color"
                             placeholder="Escreva sua dúvida aqui"
-                            onSend={handleSend} attachButton={false}/>
+                            {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
+                            onSend={handleSend}
+                            attachButton={false}/>
                     </ChatContainer>
                 </MainContainer>
             </div>

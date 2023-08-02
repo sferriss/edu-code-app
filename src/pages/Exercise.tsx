@@ -10,7 +10,7 @@ import {
 import QuestionsTable from "../components/QuestionsTable.tsx";
 import {useEffect, useState} from "react";
 import {ListResponse} from "../interfaces/Responses/listResponse.ts";
-import {ApiService} from "../Services/apiClientService.ts";
+import {ApiService} from "../services/apiClientService.ts";
 import {useNavigate} from "react-router-dom";
 import {Loading} from "../components/Loading.tsx";
 import {SimpleQuestionResponse} from "../interfaces/Responses/simpleQuestionResponse.ts";
