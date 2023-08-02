@@ -76,7 +76,6 @@ export function ChatBot({id, code, messages, setMessages}: ChatBotProps) {
                         <MessageInput
                             className="gray-color"
                             placeholder="Escreva sua dúvida aqui"
-                            {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
                             onSend={handleSend}
                             attachButton={false}/>
                     </ChatContainer>
