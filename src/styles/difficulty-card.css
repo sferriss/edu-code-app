@@ -1,0 +1,25 @@
+.dificulty-container {
+    border: 1px transparent;
+    border-radius: 20px;
+    width: 60px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.easy-style {
+    background-color: rgba(40, 167, 69, 0.3);
+    color: rgb(32, 133, 54);
+}
+
+.medium-style {
+    background-color: rgba(255, 193, 7, 0.3);
+    color: rgb(171, 130, 2);
+}
+
+.hard-style {
+    background-color: rgba(220, 53, 69, 0.3);
+    color: rgb(220, 54, 69);
+}

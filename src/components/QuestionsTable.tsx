@@ -7,6 +7,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import "../styles/question-table.css"
 import {SimpleQuestionResponse} from "../interfaces/Responses/simpleQuestionResponse.ts";
+import {DifficultyCard} from "./DifficultyCard.tsx";
 
 interface QuestionsTableProps {
   onClick: (id: string) => void
@@ -31,8 +32,10 @@ export default function QuestionsTable({onClick, questions }: QuestionsTableProp
                 key={q.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 onClick={() => onClick(q.id)}>
-              <TableCell>{q.title}</TableCell>
-              <TableCell>{q.difficulty}</TableCell>
+              <TableCell className="table-cell">{q.title}</TableCell>
+              <TableCell>
+                <DifficultyCard difficulty={q.difficulty}/>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
