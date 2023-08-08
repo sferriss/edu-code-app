@@ -44,13 +44,22 @@ const theme = createTheme({
 });
 
 export function Exercise() {
-    const [list, setList] = useState<ListResponse[] | undefined>([]);
+    const [list, setList] = useState<ListResponse[]>([]);
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true);
+
         ApiService.getList()
-            .then(response => setList(response.data.items))
-            .catch(error => console.error(error));
+            .then(response =>
+                setList(response.data.items as ListResponse[])
+            )
+            .catch(error => console.error(error)
+            )
+            .finally(() =>
+                setIsLoading(false)
+            );
     }, []);
 
     const handleItemClick = (id: string) => {
@@ -60,7 +69,7 @@ export function Exercise() {
     return <div className="exercise-container">
         <div style={{width: "50%"}}>
             <ThemeProvider theme={theme}>
-                {list?.length ? list.map((item) => (
+                {!isLoading ? list.map((item) => (
                     <Accordion key={item.id}>
                         <AccordionSummary>
                             <Typography>{item.title}</Typography>

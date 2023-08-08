@@ -14,9 +14,9 @@ export function Compiler() {
     const [question, setQuestion] = useState<FullQuestionResponse>();
     const [userCode, setUserCode] = useState<string | undefined>(``);
     const [fontSize, setFontSize] = useState('20');
-    const [loading, setLoading] = useState(false);
     const [userOutput, setUserOutput] = useState("");
     const [userInput, setUserInput] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const options = {
         fontSize: fontSize
@@ -26,14 +26,17 @@ export function Compiler() {
 
     useEffect(() => {
         if (questionId != null) {
+            setIsLoading(true);
+
             ApiService.getQuestionById(questionId)
                 .then(response => setQuestion(response.data))
-                .catch(error => console.error(error));
+                .catch(error => console.error(error))
+                .finally(() => setIsLoading(false));
         }
     }, [questionId]);
 
     async function compile() {
-        setLoading(true);
+        setIsLoading(true);
         if (userCode === ``) {
             return
         }
@@ -44,22 +47,22 @@ export function Compiler() {
             input: userInput
         }).then((res) => {
             setUserOutput(res.data.output);
-        }).then(() => {
-            setLoading(false);
+        }).finally(() => {
+            setIsLoading(false);
         })
     }
 
 
     return (<div className="compiler-container">
         <div className="question-container">
-            {question ? <QuestionCard question={question}/> : <Loading />}
+            {isLoading ? <Loading/> : question ? <QuestionCard question={question}/> : null}
         </div>
         <div className="editor-container">
             <NavBarEditor
                 fontSize={fontSize}
                 setFontSize={setFontSize}
                 compile={compile}
-                disableRun={loading}
+                disableRun={isLoading}
                 questionId={questionId as string}
                 code={userCode as string}
             />
@@ -79,8 +82,9 @@ export function Compiler() {
             <div className="data-container">
                 <div className="output-container">
                     <span>Output:</span>
-                    <div className={`output-custom ${loading ? `center-items`: ``}`}>
-                        {loading ? <CircularProgress color="inherit"/> : <pre>{userOutput}</pre>}
+                    <div className={`output-custom ${isLoading ? `center-items` : ``}`}>
+                        {isLoading ? <CircularProgress color="inherit"/> : <pre
+                            style={{fontSize: '14px', fontFamily: 'helvetica,Arial,sans-serif'}}>{userOutput}</pre>}
                     </div>
                 </div>
                 <div className="input-container">
