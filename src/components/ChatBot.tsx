@@ -17,7 +17,7 @@ interface ChatBotProps {
     id: string
     code: string
     messages: MessageModel[]
-    setMessages:  React.Dispatch<React.SetStateAction<MessageModel[]>>
+    setMessages: React.Dispatch<React.SetStateAction<MessageModel[]>>
 }
 
 export function ChatBot({id, code, messages, setMessages}: ChatBotProps) {
@@ -55,31 +55,31 @@ export function ChatBot({id, code, messages, setMessages}: ChatBotProps) {
     }
 
     return (
-            <div style={{height: "550px", width: "400px"}}>
-                <MainContainer>
-                    <ChatContainer>
-                        <ConversationHeader className="gray-color">
-                            {/*<Avatar src={emilyIco} name="Emily" />*/}
-                            <ConversationHeader.Content userName="Corey" info="Online"/>
-                        </ConversationHeader>
-                        <MessageList
-                            scrollBehavior="smooth"
-                            typingIndicator={isTyping ? <TypingIndicator content="Corey está digitando"/> : null}
-                            autoScrollToBottom={true}
-                            className="gray-color"
-                        >
-                            {messages.map((message, i) => {
-                                return <Message key={i} model={message}/>
-                            })}
-                        </MessageList>
-                        {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
-                        <MessageInput
-                            className="gray-color"
-                            placeholder="Escreva sua dúvida aqui"
-                            onSend={handleSend}
-                            attachButton={false}/>
-                    </ChatContainer>
-                </MainContainer>
-            </div>
+        <div style={{height: "550px", width: "400px"}}>
+            <MainContainer>
+                <ChatContainer>
+                    <ConversationHeader className="gray-color">
+                        {/*<Avatar src={emilyIco} name="Emily" />*/}
+                        <ConversationHeader.Content userName="Corey" info="Online"/>
+                    </ConversationHeader>
+                    <MessageList
+                        scrollBehavior="auto"
+                        typingIndicator={isTyping ? <TypingIndicator content="Corey está digitando"/> : null}
+                        autoScrollToBottom={true}
+                        className="gray-color"
+                    >
+                        {messages.map((message, i) => {
+                            return <Message key={i} model={message}/>
+                        })}
+                    </MessageList>
+                    {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
+                    <MessageInput
+                        className="gray-color"
+                        placeholder="Escreva sua dúvida aqui"
+                        onSend={handleSend}
+                        attachButton={false}/>
+                </ChatContainer>
+            </MainContainer>
+        </div>
     )
 }
