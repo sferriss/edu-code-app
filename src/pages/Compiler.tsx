@@ -26,6 +26,8 @@ export function Compiler() {
 
     useEffect(() => {
         if (questionId != null) {
+            setIsLoading(true);
+
             ApiService.getQuestionById(questionId)
                 .then(response => setQuestion(response.data))
                 .catch(error => console.error(error))
@@ -53,7 +55,7 @@ export function Compiler() {
 
     return (<div className="compiler-container">
         <div className="question-container">
-            {question ? <QuestionCard question={question}/> : <Loading />}
+            {isLoading ? <Loading/> : question ? <QuestionCard question={question}/> : null}
         </div>
         <div className="editor-container">
             <NavBarEditor
@@ -80,8 +82,9 @@ export function Compiler() {
             <div className="data-container">
                 <div className="output-container">
                     <span>Output:</span>
-                    <div className={`output-custom ${isLoading ? `center-items`: ``}`}>
-                        {isLoading ? <CircularProgress color="inherit"/> : <pre>{userOutput}</pre>}
+                    <div className={`output-custom ${isLoading ? `center-items` : ``}`}>
+                        {isLoading ? <CircularProgress color="inherit"/> : <pre
+                            style={{fontSize: '14px', fontFamily: 'helvetica,Arial,sans-serif'}}>{userOutput}</pre>}
                     </div>
                 </div>
                 <div className="input-container">

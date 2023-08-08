@@ -9,10 +9,10 @@ import {DoubtResponse} from "../interfaces/Responses/doubtResponse.ts";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const API_BASE_URL = 'https://edu-code-api.onrender.com';
+const apiUrl = import.meta.env.VITE_API_URL as string;
 
 const client = axios.create({
-    baseURL: API_BASE_URL,
+    baseURL: apiUrl,
     headers: {
         'Content-Type': 'application/json',
     },
@@ -23,7 +23,7 @@ client.interceptors.response.use(response => {
 }, error => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     if (error.response || error.request) {
-        toast.error(`Ops: Algo de errado não está certo`);
+        toast.error(`Ops: Algo de errado não está certo!`);
     }
 
     return Promise.reject(error);
