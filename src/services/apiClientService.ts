@@ -6,6 +6,8 @@ import {CompileResponse} from "../interfaces/Responses/compileResponse.ts";
 import {CompileRequest} from "../interfaces/Requests/compileRequest.ts";
 import {DoubtRequest} from "../interfaces/Requests/doubtRequest.ts";
 import {DoubtResponse} from "../interfaces/Responses/doubtResponse.ts";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const API_BASE_URL = 'https://edu-code-api.onrender.com';
 
@@ -14,6 +16,17 @@ const client = axios.create({
     headers: {
         'Content-Type': 'application/json',
     },
+});
+
+client.interceptors.response.use(response => {
+    return response;
+}, error => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    if (error.response || error.request) {
+        toast.error(`Ops: Algo de errado não está certo`);
+    }
+
+    return Promise.reject(error);
 });
 
 const getList = (): Promise<AxiosResponse<PaginationResponse<ListResponse>>> => {
