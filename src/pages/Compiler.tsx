@@ -17,6 +17,7 @@ export function Compiler() {
     const [userOutput, setUserOutput] = useState("");
     const [userInput, setUserInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [isCompileLoading, setIsCompileLoading] = useState(false);
 
     const options = {
         fontSize: fontSize
@@ -36,7 +37,7 @@ export function Compiler() {
     }, [questionId]);
 
     async function compile() {
-        setIsLoading(true);
+        setIsCompileLoading(true);
         if (userCode === ``) {
             return
         }
@@ -48,7 +49,7 @@ export function Compiler() {
         }).then((res) => {
             setUserOutput(res.data.output);
         }).finally(() => {
-            setIsLoading(false);
+            setIsCompileLoading(false);
         })
     }
 
@@ -82,8 +83,8 @@ export function Compiler() {
             <div className="data-container">
                 <div className="output-container">
                     <span>Output:</span>
-                    <div className={`output-custom ${isLoading ? `center-items` : ``}`}>
-                        {isLoading ? <CircularProgress color="inherit"/> : <pre
+                    <div className={`output-custom ${isCompileLoading ? `center-items` : ``}`}>
+                        {isCompileLoading ? <CircularProgress color="inherit"/> : <pre
                             style={{fontSize: '14px', fontFamily: 'helvetica,Arial,sans-serif'}}>{userOutput}</pre>}
                     </div>
                 </div>
