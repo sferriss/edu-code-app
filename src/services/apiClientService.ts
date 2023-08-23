@@ -30,19 +30,19 @@ client.interceptors.response.use(response => {
 });
 
 const getList = (): Promise<AxiosResponse<PaginationResponse<ListResponse>>> => {
-    return client.get(`students/questions/list?PageNumber=0&PageSize=30`);
+    return client.get(`questions/lists?PageNumber=0&PageSize=30`);
 };
 
 const getQuestionById = (id: string): Promise<AxiosResponse<FullQuestionResponse>> => {
-    return client.get(`students/questions/${id}`);
+    return client.get(`questions/${id}`);
 };
 
 const postCompile = (data: CompileRequest): Promise<AxiosResponse<CompileResponse>> => {
-    return client.post(`students/compile`, data);
+    return client.post(`compile`, data);
 };
 
 const postDoubt = (id: string, data: DoubtRequest): Promise<AxiosResponse<DoubtResponse>> => {
-    return client.post(`students/doubt/${id}`, data);
+    return client.post(`doubts/${id}`, data);
 };
 
 export const ApiService = {
