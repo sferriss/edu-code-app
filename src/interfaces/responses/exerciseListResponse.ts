@@ -1,6 +1,6 @@
 import {SimpleQuestionResponse} from "./simpleQuestionResponse.ts";
 
-export interface ListResponse {
+export interface ExerciseListResponse {
     id: string;
     title: string;
     questionTotal: number;

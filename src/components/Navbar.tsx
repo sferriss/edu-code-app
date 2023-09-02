@@ -20,12 +20,15 @@ export function Navbar() {
                 <Link className="logo" to="/">
                     <img src={Logo} alt="logo"/>
                 </Link>
-                <Link className={`navbar-link ${activePath === '/' ? 'active-link' : ''}`} to="/">
+                <Link className={`navbar-link ${activePath === '/' || activePath.startsWith('/topic')  ? 'active-link' : ''}`} to="/">
+                    Conteúdos
+                </Link>
+                <Link className={`navbar-link ${activePath === '/exercises' ? 'active-link' : ''}`} to="/exercises">
                     Exercícios
                 </Link>
-                {activePath.startsWith('/compiler') && <Link className={`navbar-link ${activePath.startsWith('/compiler') ? 'active-link' : ''}`}
+                {activePath.startsWith('/lab') && <Link className={`navbar-link ${activePath.startsWith('/lab') ? 'active-link' : ''}`}
                        to={`/compiler/${questionId}`}>
-                    Compilador
+                    Laboratório
                 </Link>}
             </div>
             <div className="navbar-sub-container">

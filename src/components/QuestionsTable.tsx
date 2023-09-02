@@ -1,22 +1,38 @@
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import "../styles/question-table.css"
-import {SimpleQuestionResponse} from "../interfaces/Responses/simpleQuestionResponse.ts";
-import {DifficultyCard} from "./DifficultyCard.tsx";
+import React from 'react';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from '@mui/material';
+
+import { DifficultyCard } from './DifficultyCard';
+import '../styles/shared.css';
+import {SimpleQuestionResponse} from "../interfaces/responses/simpleQuestionResponse.ts";
 
 interface QuestionsTableProps {
-  onClick: (id: string) => void
+  onClick: (id: string) => void;
   questions: SimpleQuestionResponse[];
 }
 
-export default function QuestionsTable({onClick, questions }: QuestionsTableProps) {
+const QuestionRow: React.FC<{ question: SimpleQuestionResponse; onClick: (id: string) => void }> = ({ question, onClick }) => (
+    <TableRow
+        className="table-item"
+        key={question.id}
+        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+        onClick={() => onClick(question.id)}
+    >
+      <TableCell className="table-cell">{question.title}</TableCell>
+      <TableCell>
+        <DifficultyCard difficulty={question.difficulty} />
+      </TableCell>
+    </TableRow>
+);
 
-  return (
+const QuestionsTable: React.FC<QuestionsTableProps> = ({ onClick, questions }) => (
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
@@ -26,20 +42,12 @@ export default function QuestionsTable({onClick, questions }: QuestionsTableProp
           </TableRow>
         </TableHead>
         <TableBody>
-          {questions?.map((q) => (
-            <TableRow
-                className="table-item"
-                key={q.id}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                onClick={() => onClick(q.id)}>
-              <TableCell className="table-cell">{q.title}</TableCell>
-              <TableCell>
-                <DifficultyCard difficulty={q.difficulty}/>
-              </TableCell>
-            </TableRow>
+          {questions.map((q) => (
+              <QuestionRow key={q.id} question={q} onClick={onClick} />
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-  );
-}
+);
+
+export default QuestionsTable;

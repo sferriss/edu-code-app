@@ -1,5 +1,5 @@
 import "../styles/cards.css"
-import {FullQuestionResponse} from "../interfaces/Responses/fullQuestionResponse.ts";
+import {FullQuestionResponse} from "../interfaces/responses/fullQuestionResponse.ts";
 import {ExampleCard} from "./ExampleCard.tsx";
 
 interface QuestionCardProps {
