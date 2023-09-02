@@ -1,4 +1,4 @@
-import {Example} from "../interfaces/Responses/fullQuestionResponse.ts";
+import {Example} from "../interfaces/responses/fullQuestionResponse.ts";
 
 interface ExampleCardProps {
     index: number

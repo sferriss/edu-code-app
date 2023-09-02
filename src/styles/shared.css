@@ -1,3 +1,16 @@
+.lists-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    height: calc(100vh - 115px);
+    overflow-x: hidden;
+}
+
+.accordion-container {
+    background-color: #373c43;
+    color: #e5e5e5;
+}
+
 .table-head {
     font-weight: 600 !important;
     font-size: 0.990rem !important;

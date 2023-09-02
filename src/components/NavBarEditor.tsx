@@ -1,4 +1,4 @@
-import "../styles/compiler.css"
+import "../styles/exercise-lab.css"
 import React, {useState} from "react";
 import {Box, Popper} from "@mui/material";
 import {ChatBot} from "./ChatBot.tsx";

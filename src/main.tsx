@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Exercise } from "./pages/Exercise";
-import { Compiler } from "./pages/Compiler";
+import { ExerciseList } from "./pages/ExerciseList.tsx";
+import { ExerciseLab } from "./pages/ExerciseLab.tsx";
+import {ModuleList} from "./pages/ModuleList.tsx";
+import {Topic} from "./pages/Topic.tsx";
 
 const router = createBrowserRouter([
     {
@@ -13,15 +15,23 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Exercise/>
+                element: <ModuleList/>
             },
             {
-                path: "compiler",
-                element: <Compiler/>
+                path: "exercises",
+                element: <ExerciseList/>
             },
             {
-                path: "compiler/:id",
-                element: <Compiler/>
+                path: "lab",
+                element: <ExerciseLab/>
+            },
+            {
+                path: "lab/:id",
+                element: <ExerciseLab/>
+            },
+            {
+                path: "topic/:id",
+                element: <Topic/>
             }
         ]
     }
