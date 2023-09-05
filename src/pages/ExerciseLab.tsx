@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {useParams} from 'react-router-dom';
 import {ApiService} from "../services/apiClientService.ts";
 import {FullQuestionResponse} from "../interfaces/responses/fullQuestionResponse.ts";
-import {QuestionCard} from "../components/QuestionCard.tsx";
+import QuestionCard from "../components/QuestionCard.tsx";
 import {Loading} from "../components/Loading.tsx";
 import {Compiler} from "../components/Compiler.tsx";
 

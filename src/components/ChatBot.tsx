@@ -20,7 +20,7 @@ interface ChatBotProps {
     setMessages: React.Dispatch<React.SetStateAction<MessageModel[]>>
 }
 
-export function ChatBot({id, code, messages, setMessages}: ChatBotProps) {
+const ChatBot: React.FC<ChatBotProps> = ({ id, code, messages, setMessages }) => {
     const [isTyping, setIsTyping] = useState(false);
 
     function addMessage(message: string, direction: string, sender: string) {
@@ -72,7 +72,6 @@ export function ChatBot({id, code, messages, setMessages}: ChatBotProps) {
                             return <Message key={i} model={message}/>
                         })}
                     </MessageList>
-                    {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
                     <MessageInput
                         className="gray-color"
                         placeholder="Escreva sua dúvida aqui"
@@ -83,3 +82,5 @@ export function ChatBot({id, code, messages, setMessages}: ChatBotProps) {
         </div>
     )
 }
+
+export default ChatBot;

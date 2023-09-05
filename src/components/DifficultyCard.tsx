@@ -1,10 +1,11 @@
 import "../styles/difficulty-card.css"
+import React from "react";
 
 interface DifficultyCardProps {
     difficulty: string
 }
 
-export function DifficultyCard({difficulty}: DifficultyCardProps) {
+const DifficultyCard: React.FC<DifficultyCardProps> = ({ difficulty}) => {
 
     function formatDifficulty() : string {
         switch (difficulty) {
@@ -36,3 +37,5 @@ export function DifficultyCard({difficulty}: DifficultyCardProps) {
         {formatDifficulty()}
     </div>
 }
+
+export default DifficultyCard;

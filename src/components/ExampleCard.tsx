@@ -1,12 +1,12 @@
 import {Example} from "../interfaces/responses/fullQuestionResponse.ts";
+import React from "react";
 
 interface ExampleCardProps {
     index: number
     example: Example;
 }
 
-export function ExampleCard({example, index}: ExampleCardProps) {
-
+const ExampleCard: React.FC<ExampleCardProps> = ({ example, index}) => {
 
     return (
         <div className="example-container">
@@ -26,3 +26,5 @@ export function ExampleCard({example, index}: ExampleCardProps) {
         </div>
     )
 }
+
+export default ExampleCard;
