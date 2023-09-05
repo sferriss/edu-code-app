@@ -9,6 +9,7 @@ import {DoubtResponse} from "../interfaces/responses/doubtResponse.ts";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {ModuleListResponse} from "../interfaces/responses/moduleListResponse.ts";
+import {TopicResponse} from "../interfaces/responses/topicResponse.ts";
 
 const apiUrl = import.meta.env.VITE_API_URL as string;
 
@@ -42,6 +43,10 @@ const getModuleList = (): Promise<AxiosResponse<PaginationResponse<ModuleListRes
     return client.get(`modules?PageNumber=0&PageSize=30`);
 };
 
+const getTopicById = (id: string): Promise<AxiosResponse<TopicResponse>> => {
+    return client.get(`modules/topic/${id}`);
+};
+
 const postCompile = (data: CompileRequest): Promise<AxiosResponse<CompileResponse>> => {
     return client.post(`compile`, data);
 };
@@ -54,6 +59,7 @@ export const ApiService = {
     getExerciseList: () => getExerciseList(),
     getQuestionById: (id: string) => getQuestionById(id),
     getModuleList: () => getModuleList(),
+    getTopicById: (id: string) => getTopicById(id),
     postCompile: (data: CompileRequest) => postCompile(data),
     postDoubt: (id: string, data: DoubtRequest) => postDoubt(id, data),
 };

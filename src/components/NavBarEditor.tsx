@@ -1,8 +1,8 @@
 import "../styles/exercise-lab.css"
 import React, {useState} from "react";
 import {Box, Popper} from "@mui/material";
-import {ChatBot} from "./ChatBot.tsx";
 import {MessageModel} from "@chatscope/chat-ui-kit-react/src/components/Message/Message";
+import ChatBot from "./ChatBot.tsx";
 
 interface NavBarEditorProps {
     fontSize: string
@@ -13,8 +13,7 @@ interface NavBarEditorProps {
     code: string
 
 }
-
-export function NavBarEditor({fontSize, setFontSize, compile, disableRun, questionId, code}: NavBarEditorProps) {
+const NavBarEditor: React.FC<NavBarEditorProps> = ({ fontSize, setFontSize, compile, disableRun, questionId, code }) => {
     const [messages, setMessages] = useState<MessageModel[]>([
         {
             message: 'Olá, sou seu tutor virtual, se tiver dúvida sobre o exercício pode me enviar. ' +
@@ -69,3 +68,5 @@ export function NavBarEditor({fontSize, setFontSize, compile, disableRun, questi
         </div>
     )
 }
+
+export default NavBarEditor;

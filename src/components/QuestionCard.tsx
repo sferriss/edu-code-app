@@ -1,13 +1,13 @@
 import "../styles/cards.css"
 import {FullQuestionResponse} from "../interfaces/responses/fullQuestionResponse.ts";
-import {ExampleCard} from "./ExampleCard.tsx";
+import ExampleCard from "./ExampleCard.tsx";
+import React from "react";
 
 interface QuestionCardProps {
     question: FullQuestionResponse | undefined;
 }
 
-export function QuestionCard({question}: QuestionCardProps) {
-
+const QuestionCard: React.FC<QuestionCardProps> = ({ question }) => {
     function formatDifficulty(difficulty: string | undefined): string {
         switch (difficulty) {
             case "Easy":
@@ -33,3 +33,5 @@ export function QuestionCard({question}: QuestionCardProps) {
         </div>
     )
 }
+
+export default QuestionCard;

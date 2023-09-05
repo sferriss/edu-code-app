@@ -9,7 +9,7 @@ import {
   Paper,
 } from '@mui/material';
 
-import { DifficultyCard } from './DifficultyCard';
+import DifficultyCard  from './DifficultyCard';
 import '../styles/shared.css';
 import {SimpleQuestionResponse} from "../interfaces/responses/simpleQuestionResponse.ts";
 
