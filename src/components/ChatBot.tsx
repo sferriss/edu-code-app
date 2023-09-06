@@ -15,7 +15,7 @@ import {ApiService} from "../services/apiClientService.ts";
 
 interface ChatBotProps {
     id: string
-    code: string
+    code?: string
     messages: MessageModel[]
     setMessages: React.Dispatch<React.SetStateAction<MessageModel[]>>
 }
