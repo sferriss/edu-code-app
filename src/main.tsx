@@ -4,7 +4,7 @@ import App from './App.tsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ExerciseList } from "./pages/ExerciseList.tsx";
-import { ExerciseLab } from "./pages/ExerciseLab.tsx";
+import { Laboratory } from "./pages/Laboratory.tsx";
 import {ModuleList} from "./pages/ModuleList.tsx";
 import {Topic} from "./pages/Topic.tsx";
 
@@ -22,12 +22,8 @@ const router = createBrowserRouter([
                 element: <ExerciseList/>
             },
             {
-                path: "lab",
-                element: <ExerciseLab/>
-            },
-            {
                 path: "lab/:id",
-                element: <ExerciseLab/>
+                element: <Laboratory/>
             },
             {
                 path: "topic/:id",

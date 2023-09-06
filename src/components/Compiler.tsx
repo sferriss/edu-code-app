@@ -2,7 +2,7 @@ import React from 'react';
 import NavBarEditor from './NavBarEditor';
 import {Editor} from '@monaco-editor/react';
 import {CircularProgress} from '@mui/material';
-import '../styles/exercise-lab.css';
+import '../styles/laboratory.css';
 
 interface CompilerProps {
     fontSize: string;

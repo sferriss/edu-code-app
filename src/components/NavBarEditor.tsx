@@ -1,8 +1,7 @@
-import "../styles/exercise-lab.css"
+import "../styles/laboratory.css"
 import React, {useState} from "react";
-import {Box, Popper} from "@mui/material";
 import {MessageModel} from "@chatscope/chat-ui-kit-react/src/components/Message/Message";
-import ChatBot from "./ChatBot.tsx";
+import HelpComponent from "./HelpComponent.tsx";
 
 interface NavBarEditorProps {
     fontSize: string
@@ -24,8 +23,6 @@ const NavBarEditor: React.FC<NavBarEditorProps> = ({ fontSize, setFontSize, comp
         }
     ]);
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
-    const id = open ? 'simple-popper' : undefined;
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(anchorEl ? null : event.currentTarget);
@@ -49,21 +46,14 @@ const NavBarEditor: React.FC<NavBarEditorProps> = ({ fontSize, setFontSize, comp
                 <button className="btn run-btn" onClick={() => compile()} disabled={disableRun}>
                     Run
                 </button>
-                <div>
-                    <button className="btn help-btn" aria-describedby={id} type="button" onClick={handleClick}>
-                        Help
-                    </button>
-                    <Popper id={id} open={open} anchorEl={anchorEl} placement="bottom-end">
-                        <Box sx={{ p: 1}}>
-                            <ChatBot
-                                id={questionId}
-                                code={code}
-                                messages={messages}
-                                setMessages={setMessages}
-                            />
-                        </Box>
-                    </Popper>
-                </div>
+                <HelpComponent
+                    code={code}
+                    messages={messages}
+                    setMessages={setMessages}
+                    anchorEl={anchorEl}
+                    itemId={questionId}
+                    handlerClick={handleClick}
+                />
             </div>
         </div>
     )

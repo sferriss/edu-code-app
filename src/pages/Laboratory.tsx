@@ -1,4 +1,4 @@
-import "../styles/exercise-lab.css"
+import "../styles/laboratory.css"
 import {useEffect, useState} from "react";
 import {useParams} from 'react-router-dom';
 import {ApiService} from "../services/apiClientService.ts";
@@ -7,7 +7,7 @@ import QuestionCard from "../components/QuestionCard.tsx";
 import {Loading} from "../components/Loading.tsx";
 import {Compiler} from "../components/Compiler.tsx";
 
-export function ExerciseLab() {
+export function Laboratory() {
     const defaultCode = "public class Main {\n    public static void main(String[] args) {\n \n }\n}";
     const [question, setQuestion] = useState<FullQuestionResponse>();
     const [userCode, setUserCode] = useState<string | undefined>(``);
