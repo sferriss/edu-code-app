@@ -1,16 +1,8 @@
 .question-card {
     display: flex;
-    padding: 15px;
+    padding: 0 15px;
     flex-direction: column;
-}
-
-.title-container {
-    display: flex;
-    align-items: center;
-}
-
-.example-container > p{
-    font-weight: bold;
+    overflow: auto;
 }
 
 .example-box {
