@@ -7,9 +7,9 @@ import {useParams} from "react-router-dom";
 import {ApiService} from "../services/apiClientService.ts";
 import {TopicResponse} from "../interfaces/responses/topicResponse.ts";
 import {Loading} from "../components/Loading.tsx";
-import HelpComponent from "../components/HelpComponent.tsx";
 import {MessageModel} from "@chatscope/chat-ui-kit-react/src/components/Message/Message";
 import {ModuleListResponse} from "../interfaces/responses/contentResponse.ts";
+import HelpComponent from "../components/HelpComponent.tsx";
 
 export function Topic() {
     const [page, setPage] = useState(1);
@@ -55,9 +55,9 @@ export function Topic() {
     }, [page, topic]);
 
 
-    return topic ? (
+    return (
         <>
-            {isLoading ? <Loading/> :
+            {isLoading ? <Loading/> : topic &&
                 <div className="topic-container">
                     <div className="title-container">
                         <h3>{topic?.title}</h3>
@@ -88,5 +88,5 @@ export function Topic() {
                     </div>}
                 </div>}
         </>
-    ) : null;
+    );
 }
