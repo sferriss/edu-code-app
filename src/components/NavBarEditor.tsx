@@ -2,6 +2,7 @@ import "../styles/laboratory.css"
 import React, {useState} from "react";
 import {MessageModel} from "@chatscope/chat-ui-kit-react/src/components/Message/Message";
 import HelpComponent from "./HelpComponent.tsx";
+import {DoubtType} from "../interfaces/requests/doubtRequest.ts";
 
 interface NavBarEditorProps {
     fontSize: string
@@ -53,6 +54,8 @@ const NavBarEditor: React.FC<NavBarEditorProps> = ({ fontSize, setFontSize, comp
                     anchorEl={anchorEl}
                     itemId={questionId}
                     handlerClick={handleClick}
+                    //note: caso viemos a usar o laboratorio junto com os conteudos precisa arrumar aqui
+                    doubtType={DoubtType.Exercise}
                 />
             </div>
         </div>

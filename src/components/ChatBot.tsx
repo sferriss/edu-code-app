@@ -1,26 +1,28 @@
 import "../styles/chatbot.css"
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import {
-    MainContainer,
     ChatContainer,
-    MessageList,
+    ConversationHeader,
+    MainContainer,
     Message,
     MessageInput,
-    TypingIndicator,
-    ConversationHeader
+    MessageList,
+    TypingIndicator
 } from '@chatscope/chat-ui-kit-react';
 import React, {useState} from "react";
 import {MessageModel} from "@chatscope/chat-ui-kit-react/src/components/Message/Message";
 import {ApiService} from "../services/apiClientService.ts";
+import {DoubtType} from "../interfaces/requests/doubtRequest.ts";
 
 interface ChatBotProps {
     id: string
     code?: string
     messages: MessageModel[]
     setMessages: React.Dispatch<React.SetStateAction<MessageModel[]>>
+    doubtType: DoubtType
 }
 
-const ChatBot: React.FC<ChatBotProps> = ({ id, code, messages, setMessages }) => {
+const ChatBot: React.FC<ChatBotProps> = ({ id, code, messages, setMessages, doubtType }) => {
     const [isTyping, setIsTyping] = useState(false);
 
     function addMessage(message: string, direction: string, sender: string) {
@@ -46,7 +48,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ id, code, messages, setMessages }) =>
         await ApiService.postDoubt(id, {
             code: code,
             doubt: newMessage.message,
-            lastMessage: null
+            type: doubtType
         }).then((res) => {
             addMessage(res.data.message, 'incoming', 'ChatGPT');
         }).then(() => {

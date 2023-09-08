@@ -40,7 +40,7 @@ export function Laboratory() {
         await ApiService.postCompile({
             language: "java",
             code: userCode,
-            input: userInput
+            input: userInput,
         }).then((res) => {
             setUserOutput(res.data.output);
         }).finally(() => {
