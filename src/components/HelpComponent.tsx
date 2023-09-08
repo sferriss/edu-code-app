@@ -3,6 +3,7 @@ import {Box, Popper} from "@mui/material";
 import ChatBot from "./ChatBot.tsx";
 import {MessageModel} from "@chatscope/chat-ui-kit-react/src/components/Message/Message";
 import {PopperPlacementType} from "@mui/base/Popper/Popper.types";
+import {DoubtType} from "../interfaces/requests/doubtRequest.ts";
 
 
 interface HelpProps {
@@ -13,6 +14,7 @@ interface HelpProps {
     code?: string
     handlerClick: (event: React.MouseEvent<HTMLElement>) => void;
     placement?: PopperPlacementType
+    doubtType: DoubtType
 }
 
 const HelpComponent: React.FC<HelpProps> = ({
@@ -22,7 +24,9 @@ const HelpComponent: React.FC<HelpProps> = ({
                                                 itemId,
                                                 code,
                                                 handlerClick,
-                                                placement }) => {
+                                                placement,
+                                                doubtType
+                                            }) => {
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popper' : undefined;
 
@@ -44,6 +48,7 @@ const HelpComponent: React.FC<HelpProps> = ({
                         messages={messages}
                         // @ts-ignore
                         setMessages={setMessages}
+                        doubtType={doubtType}
                     />
                 </Box>
             </Popper>

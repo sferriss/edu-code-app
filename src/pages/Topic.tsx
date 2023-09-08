@@ -10,6 +10,7 @@ import {Loading} from "../components/Loading.tsx";
 import {MessageModel} from "@chatscope/chat-ui-kit-react/src/components/Message/Message";
 import {ModuleListResponse} from "../interfaces/responses/contentResponse.ts";
 import HelpComponent from "../components/HelpComponent.tsx";
+import {DoubtType} from "../interfaces/requests/doubtRequest.ts";
 
 export function Topic() {
     const [page, setPage] = useState(1);
@@ -68,6 +69,7 @@ export function Topic() {
                             itemId={renderedItem?.id as string}
                             handlerClick={handleClick}
                             placement={"bottom"}
+                            doubtType={DoubtType.Content}
                         />
                     </div>
                     {topic?.contents?.length &&
