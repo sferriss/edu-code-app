@@ -24,8 +24,8 @@ export function Topic() {
 
     const [messages, setMessages] = useState<MessageModel[]>([
         {
-            message: 'Olá, sou seu tutor virtual, se tiver dúvida sobre o exercício pode me enviar. ' +
-                'Não é necessário adicionar o código ou o enunciado da questão.',
+            message: 'Olá, sou seu tutor virtual, se tiver dúvidas sobre o conteúdo pode me perguntar. ' +
+                'Eu possuo acesso ao slide, sendo assim você só precisa enviar sua pergunta.',
             sender: 'ChatGPT',
             direction: 'incoming',
             position: 'normal',
