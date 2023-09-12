@@ -6,19 +6,28 @@ import {CompileResponse} from "../interfaces/responses/compileResponse.ts";
 import {CompileRequest} from "../interfaces/requests/compileRequest.ts";
 import {DoubtRequest} from "../interfaces/requests/doubtRequest.ts";
 import {DoubtResponse} from "../interfaces/responses/doubtResponse.ts";
-import { toast } from 'react-toastify';
+import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {ModuleListResponse} from "../interfaces/responses/moduleListResponse.ts";
 import {TopicResponse} from "../interfaces/responses/topicResponse.ts";
 
 const apiUrl = import.meta.env.VITE_API_URL as string;
 
+const token = "";
+
 const client = axios.create({
     baseURL: apiUrl,
-    headers: {
-        'Content-Type': 'application/json',
-    },
+    headers: buildHeaders(token),
 });
+
+function buildHeaders(token: string) {
+    return token ? {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+    } : {
+        'Content-Type': 'application/json',
+    }
+}
 
 client.interceptors.response.use(response => {
     return response;
