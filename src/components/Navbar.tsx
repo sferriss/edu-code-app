@@ -1,5 +1,5 @@
 import "../styles/navbar.css"
-import Logo from "../assets/a-rocket-5-no-background.png"
+import Logo from "../assets/logo_navbar.png"
 import {Link, useParams} from "react-router-dom";
 import {useEffect, useState} from 'react';
 import {useLocation} from 'react-router-dom';
