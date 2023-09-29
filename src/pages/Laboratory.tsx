@@ -6,6 +6,7 @@ import {FullQuestionResponse} from "../interfaces/responses/fullQuestionResponse
 import QuestionCard from "../components/QuestionCard.tsx";
 import {Loading} from "../components/Loading.tsx";
 import {Compiler} from "../components/Compiler.tsx";
+import Warning from "../components/Warning.tsx";
 
 export function Laboratory() {
     const defaultCode = "public class Main {\n    public static void main(String[] args) {\n \n }\n}";
@@ -51,7 +52,7 @@ export function Laboratory() {
 
     return (<div className="lab-container">
         <div className="question-container">
-            {isLoading ? <Loading/> : question ? <QuestionCard question={question}/> : null}
+            {isLoading ? <Loading/> : question ? <QuestionCard question={question}/> :  <Warning message="Ops! Houve um problema."/>}
         </div>
         <Compiler
             fontSize={fontSize}
