@@ -1,0 +1,7 @@
+.warning-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    font-size: 35px;
+}

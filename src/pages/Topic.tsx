@@ -11,6 +11,7 @@ import {MessageModel} from "@chatscope/chat-ui-kit-react/src/components/Message/
 import {ModuleListResponse} from "../interfaces/responses/contentResponse.ts";
 import HelpComponent from "../components/HelpComponent.tsx";
 import {DoubtType} from "../interfaces/requests/doubtRequest.ts";
+import Warning from "../components/Warning.tsx";
 
 export function Topic() {
     const [page, setPage] = useState(1);
@@ -55,10 +56,11 @@ export function Topic() {
         }
     }, [page, topic]);
 
+    console.log(topic?.contents)
 
     return (
         <>
-            {isLoading ? <Loading/> : topic &&
+            {isLoading ? <Loading/> : topic?.contents?.length ?
                 <div className="topic-container">
                     <div className="title-container">
                         <h3>{topic?.title}</h3>
@@ -88,7 +90,7 @@ export function Topic() {
                             sx={paginationStyles}
                         />
                     </div>}
-                </div>}
+                </div> : <Warning message="Ops! Ainda não há nada aqui."/>}
         </>
     );
 }

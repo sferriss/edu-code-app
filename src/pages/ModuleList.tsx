@@ -38,12 +38,12 @@ export function ModuleList() {
         <div style={{width: "50%"}}>
             <ThemeProvider theme={Theme}>
                 {!isLoading ? moduleList.map((item) => (
-                    <Accordion key={item.id}>
+                    <Accordion key={item.id} disabled={!item.topics?.length}>
                         <AccordionSummary>
                             <Typography>{item.title}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <TopicTable
+                             <TopicTable
                                 topics={item.topics as SimpleTopicResponse[]}
                                 onClick={handleItemClick}/>
                         </AccordionDetails>
