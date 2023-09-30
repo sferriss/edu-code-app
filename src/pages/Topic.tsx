@@ -56,8 +56,6 @@ export function Topic() {
         }
     }, [page, topic]);
 
-    console.log(topic?.contents)
-
     return (
         <>
             {isLoading ? <Loading/> : topic?.contents?.length ?

@@ -22,7 +22,7 @@ interface ChatBotProps {
     doubtType: DoubtType
 }
 
-const ChatBot: React.FC<ChatBotProps> = ({ id, code, messages, setMessages, doubtType }) => {
+const ChatBot: React.FC<ChatBotProps> = ({id, code, messages, setMessages, doubtType}) => {
     const [isTyping, setIsTyping] = useState(false);
 
     function addMessage(message: string, direction: string, sender: string) {
