@@ -9,23 +9,10 @@ interface QuestionCardProps {
 }
 
 const QuestionCard: React.FC<QuestionCardProps> = ({question}) => {
-    function formatDifficulty(difficulty: string | undefined): string {
-        switch (difficulty) {
-            case "Easy":
-                return "Fácil";
-            case "Medium":
-                return "Médio";
-            case "Hard":
-                return "Difícil";
-            default:
-                return "";
-        }
-    }
-
     return (
         <div className="question-card">
             <div>
-                <h3>{question?.title} - {formatDifficulty(question?.difficult)}</h3>
+                <h3>{question?.title}</h3>
             </div>
             <div>
                 <MarkdownViewer content={question?.description || ""}/>
