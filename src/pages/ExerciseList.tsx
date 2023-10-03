@@ -42,7 +42,7 @@ export function ExerciseList() {
         <div style={{width: "50%"}}>
             <ThemeProvider theme={Theme}>
                 {!isLoading ? list.map((item) => (
-                    <Accordion key={item.id}>
+                    <Accordion key={item.id} disabled={!item.questions?.length}>
                         <AccordionSummary>
                             <Typography>{item.title}</Typography>
                         </AccordionSummary>
