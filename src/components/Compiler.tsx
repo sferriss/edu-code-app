@@ -39,8 +39,7 @@ export const Compiler: React.FC<CompilerProps> = ({
                                                       setUserCode,
                                                       isCompileLoading,
                                                       userOutput,
-                                                      setUserInput,
-                                                  }) => {
+                                                      setUserInput,}) => {
 
 
     const options = {
