@@ -24,8 +24,27 @@
     background-color: #ededf5;
 }
 
-.table-cell {
+.question-cell {
+    width: 65%;
+}
+
+.difficulty-cell {
+    width: 35%;
+}
+
+.content-cell {
+    width: 50%;
+}
+
+.content-description-cell {
+    width: 50%;
+}
+
+.typography{
     font-weight: 600 !important;
     font-size: 0.950rem !important;
     color: #214fc9 !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

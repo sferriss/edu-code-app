@@ -25,8 +25,8 @@ const QuestionRow: React.FC<{ question: SimpleQuestionResponse; onClick: (id: st
         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
         onClick={() => onClick(question.id)}
     >
-      <TableCell className="table-cell">{question.title}</TableCell>
-      <TableCell>
+      <TableCell className="typography question-cell">{question.title}</TableCell>
+      <TableCell className="typography difficulty-cell">
         <DifficultyCard difficulty={question.difficulty} />
       </TableCell>
     </TableRow>

@@ -23,8 +23,8 @@ const TopicRow: React.FC<{ topic: SimpleTopicResponse; onClick: (id: string) => 
         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
         onClick={() => onClick(topic.id)}
     >
-        <TableCell className="table-cell">{topic.title}</TableCell>
-        <TableCell className="table-cell">{topic.description}</TableCell>
+        <TableCell className="typography content-cell">{topic.title}</TableCell>
+        <TableCell className="typography content-description-cell">{topic.description}</TableCell>
     </TableRow>
 );
 
