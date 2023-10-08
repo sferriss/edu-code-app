@@ -26,7 +26,7 @@ export function Navbar() {
                 <Link className={`navbar-link ${activePath === '/exercises' ? 'active-link' : ''}`} to="/exercises">
                     Exercícios
                 </Link>
-                {activePath.startsWith('/lab') && <Link className={`navbar-link ${activePath.startsWith('/lab') ? 'active-link' : ''}`}
+                {activePath.startsWith(`/lab/${questionId}`) && <Link className={`navbar-link ${activePath.startsWith(`/lab/${questionId}`) ? 'active-link' : ''}`}
                        to={`/lab/${questionId}`}>
                     Laboratório
                 </Link>}

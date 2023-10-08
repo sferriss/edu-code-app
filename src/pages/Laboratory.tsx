@@ -9,7 +9,6 @@ import {Compiler} from "../components/Compiler.tsx";
 import Warning from "../components/Warning.tsx";
 
 export function Laboratory() {
-    const defaultCode = "public class Main {\n    public static void main(String[] args) {\n \n }\n}";
     const [question, setQuestion] = useState<FullQuestionResponse>();
     const [userCode, setUserCode] = useState<string | undefined>(``);
     const [fontSize, setFontSize] = useState('20');
@@ -21,6 +20,17 @@ export function Laboratory() {
     const params = useParams();
     const questionId = params.id;
 
+    const defaultValue = "public class Main {\n    public static void main(String[] args) {\n \n }\n}";
+    const [defaultCode] = useState<string>(() => {
+            const savedValue = localStorage.getItem(questionId as string);
+            if (savedValue) {
+                return savedValue;
+            } else {
+                return defaultValue;
+            }
+        }
+    );
+
     useEffect(() => {
         if (questionId != null) {
             setIsLoading(true);
@@ -31,6 +41,12 @@ export function Laboratory() {
                 .finally(() => setIsLoading(false));
         }
     }, [questionId]);
+
+    useEffect(() => {
+        if (userCode && questionId) {
+            localStorage.setItem(questionId, userCode)
+        }
+    }, [userCode]);
 
     async function compile() {
         setIsCompileLoading(true);
@@ -52,7 +68,8 @@ export function Laboratory() {
 
     return (<div className="lab-container">
         <div className="question-container">
-            {isLoading ? <Loading/> : question ? <QuestionCard question={question}/> :  <Warning message="Ops! Houve um problema."/>}
+            {isLoading ? <Loading/> : question ? <QuestionCard question={question}/> :
+                <Warning message="Ops! Houve um problema."/>}
         </div>
         <Compiler
             fontSize={fontSize}
