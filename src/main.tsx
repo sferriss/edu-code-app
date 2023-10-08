@@ -7,6 +7,7 @@ import { ExerciseList } from "./pages/ExerciseList.tsx";
 import { Laboratory } from "./pages/Laboratory.tsx";
 import {ModuleList} from "./pages/ModuleList.tsx";
 import {Topic} from "./pages/Topic.tsx";
+import {NotFound} from "./components/NotFoundRoute.tsx";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: "topic/:id",
                 element: <Topic/>
+            },
+            {
+                path: "*",
+                element: <NotFound/>
             }
         ]
     }
