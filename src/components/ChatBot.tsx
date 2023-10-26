@@ -20,9 +20,10 @@ interface ChatBotProps {
     messages: MessageModel[]
     setMessages: React.Dispatch<React.SetStateAction<MessageModel[]>>
     doubtType: DoubtType
+    userOutput?: string;
 }
 
-const ChatBot: React.FC<ChatBotProps> = ({id, code, messages, setMessages, doubtType}) => {
+const ChatBot: React.FC<ChatBotProps> = ({id, code, messages, setMessages, doubtType, userOutput}) => {
     const [isTyping, setIsTyping] = useState(false);
 
     function addMessage(message: string, direction: string, sender: string) {
@@ -48,7 +49,8 @@ const ChatBot: React.FC<ChatBotProps> = ({id, code, messages, setMessages, doubt
         await ApiService.postDoubt(id, {
             code: code,
             doubt: newMessage.message,
-            type: doubtType
+            type: doubtType,
+            outPut: userOutput
         }).then((res) => {
             addMessage(res.data.message, 'incoming', 'ChatGPT');
         }).then(() => {

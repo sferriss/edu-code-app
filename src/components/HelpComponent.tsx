@@ -15,6 +15,7 @@ interface HelpProps {
     handlerClick: (event: React.MouseEvent<HTMLElement>) => void;
     placement?: PopperPlacementType
     doubtType: DoubtType
+    userOutput?: string
 }
 
 const HelpComponent: React.FC<HelpProps> = ({
@@ -25,7 +26,8 @@ const HelpComponent: React.FC<HelpProps> = ({
                                                 code,
                                                 handlerClick,
                                                 placement,
-                                                doubtType
+                                                doubtType,
+                                                userOutput
                                             }) => {
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popper' : undefined;
@@ -49,6 +51,7 @@ const HelpComponent: React.FC<HelpProps> = ({
                         // @ts-ignore
                         setMessages={setMessages}
                         doubtType={doubtType}
+                        userOutput={userOutput}
                     />
                 </Box>
             </Popper>

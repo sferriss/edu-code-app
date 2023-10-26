@@ -55,6 +55,7 @@ export const Compiler: React.FC<CompilerProps> = ({
                 disableRun={isLoading}
                 questionId={questionId}
                 code={userCode}
+                userOutput={userOutput}
             />
             <Editor
                 options={options}

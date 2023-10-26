@@ -11,9 +11,10 @@ interface NavBarEditorProps {
     disableRun: boolean
     questionId: string
     code: string
+    userOutput?: string;
 
 }
-const NavBarEditor: React.FC<NavBarEditorProps> = ({ fontSize, setFontSize, compile, disableRun, questionId, code }) => {
+const NavBarEditor: React.FC<NavBarEditorProps> = ({ fontSize, setFontSize, compile, disableRun, questionId, code, userOutput }) => {
     const [messages, setMessages] = useState<MessageModel[]>([
         {
             message: 'Olá, sou seu tutor virtual, se tiver dúvida sobre o exercício pode me enviar. ' +
@@ -56,6 +57,7 @@ const NavBarEditor: React.FC<NavBarEditorProps> = ({ fontSize, setFontSize, comp
                     handlerClick={handleClick}
                     //note: caso viemos a usar o laboratorio junto com os conteudos precisa arrumar aqui
                     doubtType={DoubtType.Exercise}
+                    userOutput={userOutput}
                 />
             </div>
         </div>
