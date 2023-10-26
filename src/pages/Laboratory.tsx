@@ -48,9 +48,16 @@ export function Laboratory() {
         }
     }, [userCode]);
 
+    useEffect(() => {
+        if (defaultCode) {
+            setUserCode(defaultCode)
+        }
+    }, [defaultCode]);
+
     async function compile() {
         setIsCompileLoading(true);
         if (userCode === ``) {
+            setIsCompileLoading(false);
             return
         }
 
