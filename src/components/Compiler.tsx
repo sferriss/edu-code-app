@@ -59,7 +59,7 @@ export const Compiler: React.FC<CompilerProps> = ({
             />
             <Editor
                 options={options}
-                height="calc(100vh - 280px)"
+                height="calc(100vh - 250px)"
                 width="100%"
                 theme="vs-dark"
                 language="java"

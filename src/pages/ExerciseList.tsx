@@ -39,7 +39,7 @@ export function ExerciseList() {
     };
 
     return <div className="lists-container">
-        <div style={{width: "50%"}}>
+        <div style={{width: "70%"}}>
             <ThemeProvider theme={Theme}>
                 {!isLoading ? list.map((item) => (
                     <Accordion key={item.id} disabled={!item.questions?.length}>

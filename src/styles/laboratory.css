@@ -16,7 +16,7 @@
 
 .navbar-editor {
     border-bottom: 1px solid #373c43;
-    height: 35px;
+    height: 30px;
     border-radius: 3px;
     display: flex;
     padding: 10px 15px;
@@ -45,8 +45,8 @@
 .btn {
     cursor: pointer;
     margin: 0 15px;
-    width: 70px;
-    height: 30px;
+    width: 68px;
+    height: 28px;
     font-size: 14px;
     font-weight: bold;
     border: none;
@@ -80,7 +80,7 @@
 .data-container {
     display: flex;
     padding: 5px 10px;
-    height: 120px;
+    height: 90px;
 }
 
 .output-container {

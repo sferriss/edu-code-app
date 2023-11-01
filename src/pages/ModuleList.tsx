@@ -35,7 +35,7 @@ export function ModuleList() {
     };
 
     return <div className="lists-container">
-        <div style={{width: "50%"}}>
+        <div style={{width: "70%"}}>
             <ThemeProvider theme={Theme}>
                 {!isLoading ? moduleList.map((item) => (
                     <Accordion key={item.id} disabled={!item.topics?.length}>
